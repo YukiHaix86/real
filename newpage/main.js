@@ -1,4 +1,10 @@
 import './styles.sass'
+import $ from "jquery";
+
+$(document).ready(function(){
+  $("#content").load("home.html");
+})
+
 
   const menuButton = document.querySelector('#menu-button');
   const wrapper = document.querySelector('#wrapper');
@@ -25,3 +31,31 @@ menuButton.addEventListener('click', () => {
   }
 });
 
+
+
+$(".navigation-item a, #home").on("click", function(e) {
+  e.preventDefault();
+  let file = this.id + ".html";
+
+  //navigation-item color change for current page
+  $(".navigation-item").removeClass("active");
+  if(this.id != "home"){
+  $("#" + this.id).parent().addClass("active");
+}
+
+$("#content").load(file);
+window.history.pushState(file, null, "/");
+})
+
+// Ensure page back functionality
+window.addEventListener("popstate", function (event) {
+  var prevState = event.state;
+  $("#content").load(prevState);
+
+  var page_id = "#" + prevState.split(".")[0];
+  $(".active").removeClass("active");
+
+  if(page_id != "#home"){
+    $(page_id).parent().addClass("active");
+  }
+});
