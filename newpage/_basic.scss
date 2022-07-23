@@ -24,12 +24,12 @@ body, html {
 
  @font-face {
     font-family: 'Roboto';
-    src: url('/fonts/Roboto-Regular.ttf');
+    src: url('./fonts/Roboto-Light.ttf');
     font-weight: 500;
 }
 
 @font-face {
     font-family: 'Roboto';
-    src: url('/fonts/Roboto-Bold.ttf');
+    src: url('./fonts/Roboto-Bold.ttf');
     font-weight: 700;
 }

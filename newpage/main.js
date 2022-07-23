@@ -47,7 +47,7 @@ $("#content").load(file);
 window.history.pushState(file, null, "/");
 })
 
-// Ensure page back functionality
+//page back functionality
 window.addEventListener("popstate", function (event) {
   var prevState = event.state;
   $("#content").load(prevState);
